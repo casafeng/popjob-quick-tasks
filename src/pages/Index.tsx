@@ -1,16 +1,29 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import HeroSection from "@/components/landing/HeroSection";
+import ProblemsSection from "@/components/landing/ProblemsSection";
+import HowItWorksSection from "@/components/landing/HowItWorksSection";
+import TaskExamplesSection from "@/components/landing/TaskExamplesSection";
+import WhyPopJobSection from "@/components/landing/WhyPopJobSection";
+import LeadFormClient from "@/components/landing/LeadFormClient";
+import LeadFormWorker from "@/components/landing/LeadFormWorker";
+import SocialProofSection from "@/components/landing/SocialProofSection";
+import FAQSection from "@/components/landing/FAQSection";
+import FinalCTASection from "@/components/landing/FinalCTASection";
+import FooterSection from "@/components/landing/FooterSection";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
-  return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
-    </div>
-  );
-};
-
-const Index = PlaceholderIndex;
+const Index = () => (
+  <main>
+    <HeroSection />
+    <ProblemsSection />
+    <HowItWorksSection />
+    <TaskExamplesSection />
+    <WhyPopJobSection />
+    <LeadFormClient />
+    <LeadFormWorker />
+    <SocialProofSection />
+    <FAQSection />
+    <FinalCTASection />
+    <FooterSection />
+  </main>
+);
 
 export default Index;
