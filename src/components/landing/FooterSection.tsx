@@ -21,7 +21,7 @@ const FooterSection = () => (
         </div>
         <div>
           <h4 className="font-heading font-semibold mb-3">Contatti</h4>
-          <p className="text-sm opacity-70 mb-3">info@popjob.it</p>
+          <p className="text-sm opacity-70 mb-3">popjob15@gmail.com</p>
           <div className="flex gap-3">
             {["Instagram", "LinkedIn", "TikTok"].map(s => (
               <a key={s} href="#" className="text-xs px-3 py-1.5 rounded-full border border-background/20 opacity-70 hover:opacity-100 transition-opacity">
