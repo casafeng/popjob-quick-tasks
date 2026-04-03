@@ -10,10 +10,10 @@ const FinalCTASection = () => (
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <h2 className="text-3xl md:text-4xl font-heading font-bold text-background mb-4">
+        <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary mb-4">
           Unisciti a PopJob prima di tutti
         </h2>
-        <p className="text-background/60 mb-8 max-w-lg mx-auto">
+        <p className="text-background/70 mb-8 max-w-lg mx-auto">
           Stiamo lanciando presto. Iscriviti ora e ottieni accesso prioritario.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -26,8 +26,7 @@ const FinalCTASection = () => (
           </Button>
           <Button
             size="lg"
-            variant="outline"
-            className="rounded-full border-2 border-background text-background font-semibold text-base px-8 hover:bg-background hover:text-foreground"
+            className="rounded-full bg-background text-foreground font-semibold text-base px-8 hover:bg-background/90"
             onClick={() => document.getElementById("worker-form")?.scrollIntoView({ behavior: "smooth" })}
           >
             Voglio lavorare
