@@ -7,9 +7,9 @@ interface PopJobLogoProps {
 }
 
 const sizeMap = {
-  sm: "h-12",
-  md: "h-14",
-  lg: "h-24 md:h-32",
+  sm: "h-14",
+  md: "h-16",
+  lg: "h-32 md:h-40",
 };
 
 const PopJobLogo = ({ className = "", size = "md", color }: PopJobLogoProps) => {
