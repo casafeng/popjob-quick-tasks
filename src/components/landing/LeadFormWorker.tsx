@@ -4,15 +4,31 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 const LeadFormWorker = () => {
   const [form, setForm] = useState({ name: "", email: "", city: "", skills: "", availability: "", pay: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.email) {
       toast.error("Inserisci almeno nome e email.");
+      return;
+    }
+    setLoading(true);
+    const { error } = await supabase.from("leads_workers").insert({
+      name: form.name,
+      email: form.email,
+      city: form.city || null,
+      skills: form.skills || null,
+      availability: form.availability || null,
+      pay: form.pay || null,
+    });
+    setLoading(false);
+    if (error) {
+      toast.error("Errore nell'invio. Riprova.");
       return;
     }
     setSubmitted(true);
