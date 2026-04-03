@@ -22,7 +22,7 @@ const PopJobLogo = ({ className = "", size = "md", color }: PopJobLogoProps) => 
       src={popjobLogo}
       alt="PopJob"
       className={`${s} ${className} ${invert ? "brightness-0 invert" : ""}`}
-      style={{ objectFit: "contain", mixBlendMode: invert ? "normal" : "multiply" }}
+      style={{ objectFit: "contain" }}
     />
   );
 };
