@@ -4,15 +4,31 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 const LeadFormClient = () => {
   const [form, setForm] = useState({ name: "", email: "", city: "", help: "", when: "", budget: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.email) {
       toast.error("Inserisci almeno nome e email.");
+      return;
+    }
+    setLoading(true);
+    const { error } = await supabase.from("leads_clients").insert({
+      name: form.name,
+      email: form.email,
+      city: form.city || null,
+      help: form.help || null,
+      when: form.when || null,
+      budget: form.budget || null,
+    });
+    setLoading(false);
+    if (error) {
+      toast.error("Errore nell'invio. Riprova.");
       return;
     }
     setSubmitted(true);
@@ -50,8 +66,8 @@ const LeadFormClient = () => {
             <Textarea placeholder="Che tipo di aiuto ti serve?" value={form.help} onChange={e => setForm(f => ({ ...f, help: e.target.value }))} className="rounded-xl" />
             <Input placeholder="Quando ne hai bisogno?" value={form.when} onChange={e => setForm(f => ({ ...f, when: e.target.value }))} className="rounded-xl" />
             <Input placeholder="Quanto saresti disposto a pagare? (€)" value={form.budget} onChange={e => setForm(f => ({ ...f, budget: e.target.value }))} className="rounded-xl" />
-            <Button type="submit" size="lg" className="w-full rounded-full text-base font-semibold">
-              Richiedi accesso anticipato
+            <Button type="submit" size="lg" disabled={loading} className="w-full rounded-full text-base font-semibold">
+              {loading ? "Invio in corso..." : "Richiedi accesso anticipato"}
             </Button>
           </form>
         </motion.div>
