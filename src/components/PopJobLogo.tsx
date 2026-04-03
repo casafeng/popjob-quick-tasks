@@ -7,9 +7,9 @@ interface PopJobLogoProps {
 }
 
 const sizeMap = {
-  sm: "h-8",
-  md: "h-10",
-  lg: "h-16 md:h-20",
+  sm: "h-12",
+  md: "h-14",
+  lg: "h-24 md:h-32",
 };
 
 const PopJobLogo = ({ className = "", size = "md", color }: PopJobLogoProps) => {
@@ -21,7 +21,7 @@ const PopJobLogo = ({ className = "", size = "md", color }: PopJobLogoProps) => 
     <img
       src={popjobLogo}
       alt="PopJob"
-      className={`${s} ${className} ${invert ? "invert" : ""}`}
+      className={`${s} ${className} ${invert ? "brightness-0 invert" : ""}`}
       style={{ objectFit: "contain" }}
     />
   );
