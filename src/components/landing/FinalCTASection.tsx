@@ -26,7 +26,8 @@ const FinalCTASection = () => (
           </Button>
           <Button
             size="lg"
-            className="rounded-full bg-background text-foreground font-semibold text-base px-8 hover:bg-background/80 shadow-lg"
+            variant="outline"
+            className="rounded-full border-0 bg-white text-black font-semibold text-base px-8 hover:bg-white/80 shadow-lg"
             onClick={() => document.getElementById("worker-form")?.scrollIntoView({ behavior: "smooth" })}
           >
             Voglio lavorare
