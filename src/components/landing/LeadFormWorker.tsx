@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 
 const LeadFormWorker = () => {
-  const [form, setForm] = useState({ name: "", email: "", city: "", skills: "", availability: "", why: "" });
+  const [form, setForm] = useState({ name: "", email: "", city: "", skills: "", availability: "", pay: "" });
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -49,7 +49,7 @@ const LeadFormWorker = () => {
             <Input placeholder="Città" value={form.city} onChange={e => setForm(f => ({ ...f, city: e.target.value }))} className="rounded-xl" />
             <Textarea placeholder="Che lavori puoi fare?" value={form.skills} onChange={e => setForm(f => ({ ...f, skills: e.target.value }))} className="rounded-xl" />
             <Input placeholder="Quando sei disponibile?" value={form.availability} onChange={e => setForm(f => ({ ...f, availability: e.target.value }))} className="rounded-xl" />
-            <Textarea placeholder="Perché vuoi usare PopJob?" value={form.why} onChange={e => setForm(f => ({ ...f, why: e.target.value }))} className="rounded-xl" />
+            <Input placeholder="Quanto vorresti essere pagato? (€/ora)" value={form.pay} onChange={e => setForm(f => ({ ...f, pay: e.target.value }))} className="rounded-xl" />
             <Button type="submit" size="lg" className="w-full rounded-full text-base font-semibold bg-accent hover:bg-accent/90">
               Candidati come worker
             </Button>
