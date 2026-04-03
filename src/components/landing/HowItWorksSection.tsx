@@ -27,9 +27,9 @@ const StepCard = ({ step, index }: { step: typeof clientSteps[0]; index: number 
     variants={fadeUp}
     className="flex flex-col items-center text-center"
   >
-    <div className="w-16 h-16 rounded-2xl bg-secondary flex items-center justify-center mb-4 relative">
-      <step.icon className="w-8 h-8 text-accent" />
-      <span className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center">
+    <div className="w-16 h-16 rounded-2xl bg-muted flex items-center justify-center mb-4 relative">
+      <step.icon className="w-8 h-8 text-foreground" />
+      <span className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-foreground text-background text-xs font-bold flex items-center justify-center">
         {index + 1}
       </span>
     </div>
@@ -44,14 +44,14 @@ const HowItWorksSection = () => (
       <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-14">Come funziona</h2>
 
       <div className="mb-16">
-        <h3 className="text-xl font-heading font-semibold text-center mb-8 text-accent">Per chi cerca aiuto</h3>
+        <h3 className="text-xl font-heading font-semibold text-center mb-8 text-foreground/70">Per chi cerca aiuto</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {clientSteps.map((s, i) => <StepCard key={i} step={s} index={i} />)}
         </div>
       </div>
 
       <div>
-        <h3 className="text-xl font-heading font-semibold text-center mb-8 text-accent">Per chi vuole lavorare</h3>
+        <h3 className="text-xl font-heading font-semibold text-center mb-8 text-foreground/70">Per chi vuole lavorare</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {workerSteps.map((s, i) => <StepCard key={i} step={s} index={i} />)}
         </div>
