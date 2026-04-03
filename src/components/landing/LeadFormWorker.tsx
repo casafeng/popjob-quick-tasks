@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 
 const LeadFormWorker = () => {
-  const [form, setForm] = useState({ name: "", email: "", city: "", skills: "", availability: "", why: "" });
+  const [form, setForm] = useState({ name: "", email: "", city: "", skills: "", availability: "", pay: "" });
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
