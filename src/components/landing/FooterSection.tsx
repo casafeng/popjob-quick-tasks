@@ -1,13 +1,12 @@
-import { Briefcase } from "lucide-react";
+import PopJobLogo from "@/components/PopJobLogo";
 
 const FooterSection = () => (
   <footer className="py-12 bg-foreground text-background">
     <div className="container mx-auto">
       <div className="grid md:grid-cols-3 gap-8 mb-8">
         <div>
-          <div className="flex items-center gap-2 mb-3">
-            <Briefcase className="w-6 h-6" />
-            <span className="text-xl font-heading font-bold">PopJob</span>
+          <div className="mb-3">
+            <PopJobLogo size="sm" color="text-background" />
           </div>
           <p className="text-sm opacity-70">Work when you want. Hire when you need.</p>
         </div>

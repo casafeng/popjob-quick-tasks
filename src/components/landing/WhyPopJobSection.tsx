@@ -22,8 +22,8 @@ const WhyPopJobSection = () => (
             transition={{ delay: i * 0.1, duration: 0.5 }}
             className="text-center p-6"
           >
-            <div className="w-14 h-14 rounded-2xl bg-primary mx-auto flex items-center justify-center mb-4">
-              <b.icon className="w-7 h-7 text-primary-foreground" />
+            <div className="w-14 h-14 rounded-2xl bg-foreground mx-auto flex items-center justify-center mb-4">
+              <b.icon className="w-7 h-7 text-background" />
             </div>
             <h4 className="font-heading font-semibold mb-1">{b.title}</h4>
             <p className="text-sm text-muted-foreground">{b.desc}</p>

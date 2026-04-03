@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import PopJobLogo from "@/components/PopJobLogo";
 import heroImg from "@/assets/hero-illustration.jpg";
 
 const HeroSection = () => (
@@ -12,23 +12,22 @@ const HeroSection = () => (
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <div className="flex items-center gap-2 mb-6">
-            <Briefcase className="h-8 w-8 text-primary-foreground" />
-            <span className="text-2xl font-heading font-bold text-primary-foreground">PopJob</span>
+          <div className="mb-6">
+            <PopJobLogo size="lg" color="text-foreground" />
           </div>
-          <h1 className="text-4xl md:text-6xl font-heading font-bold text-primary-foreground leading-tight mb-4">
+          <h1 className="text-4xl md:text-6xl font-heading font-bold text-foreground leading-tight mb-4">
             Aiuto locale,<br />quando serve davvero.
           </h1>
-          <p className="text-lg md:text-xl text-primary-foreground/90 mb-2 max-w-lg">
+          <p className="text-lg md:text-xl text-foreground/80 mb-2 max-w-lg font-medium">
             Work when you want. Hire when you need.
           </p>
-          <p className="text-base text-primary-foreground/80 mb-8 max-w-lg">
+          <p className="text-base text-foreground/70 mb-8 max-w-lg">
             Trova un worker per i tuoi piccoli lavori o guadagna nel tuo tempo libero. Oggi, vicino a te.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mb-6">
             <Button
               size="lg"
-              className="rounded-full bg-card text-accent font-semibold text-base px-8 hover:bg-card/90 shadow-lg"
+              className="rounded-full bg-foreground text-background font-semibold text-base px-8 hover:bg-foreground/90 shadow-lg"
               onClick={() => document.getElementById("client-form")?.scrollIntoView({ behavior: "smooth" })}
             >
               Trova un worker
@@ -36,13 +35,13 @@ const HeroSection = () => (
             <Button
               size="lg"
               variant="outline"
-              className="rounded-full border-2 border-primary-foreground text-primary-foreground font-semibold text-base px-8 hover:bg-primary-foreground/10"
+              className="rounded-full border-2 border-foreground text-foreground font-semibold text-base px-8 hover:bg-foreground hover:text-background"
               onClick={() => document.getElementById("worker-form")?.scrollIntoView({ behavior: "smooth" })}
             >
               Lavora con noi
             </Button>
           </div>
-          <p className="text-sm text-primary-foreground/70 font-medium tracking-wide">
+          <p className="text-sm text-foreground/60 font-medium tracking-wide">
             ✨ Facile · Veloce · Locale
           </p>
         </motion.div>
