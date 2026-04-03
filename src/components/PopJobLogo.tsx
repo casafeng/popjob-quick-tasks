@@ -1,4 +1,4 @@
-import { Briefcase } from "lucide-react";
+import popjobLogo from "@/assets/popjob-logo.png";
 
 interface PopJobLogoProps {
   className?: string;
@@ -7,23 +7,23 @@ interface PopJobLogoProps {
 }
 
 const sizeMap = {
-  sm: { text: "text-3xl", icon: 24, wrapper: "w-7 h-7" },
-  md: { text: "text-4xl", icon: 30, wrapper: "w-9 h-9" },
-  lg: { text: "text-6xl md:text-7xl", icon: 52, wrapper: "w-14 h-14 md:w-16 md:h-16" },
+  sm: "h-8",
+  md: "h-10",
+  lg: "h-16 md:h-20",
 };
 
 const PopJobLogo = ({ className = "", size = "md", color }: PopJobLogoProps) => {
   const s = sizeMap[size];
-  const textColor = color || "text-foreground";
+  // If color includes "text-background" (used in dark footer), invert the logo
+  const invert = color?.includes("background");
 
   return (
-    <span className={`inline-flex items-baseline font-heading font-black lowercase tracking-tighter ${textColor} ${s.text} ${className}`} style={{ lineHeight: 1 }}>
-      <span>popj</span>
-      <span className={`inline-flex items-center justify-center ${s.wrapper} relative`} style={{ marginLeft: '-0.05em', marginRight: '-0.08em', marginBottom: '-0.05em' }}>
-        <Briefcase size={s.icon} className={textColor} strokeWidth={2.8} style={{ display: 'block' }} />
-      </span>
-      <span>b</span>
-    </span>
+    <img
+      src={popjobLogo}
+      alt="PopJob"
+      className={`${s} ${className} ${invert ? "invert" : ""}`}
+      style={{ objectFit: "contain" }}
+    />
   );
 };
 
