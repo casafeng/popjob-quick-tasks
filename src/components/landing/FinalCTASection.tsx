@@ -24,14 +24,13 @@ const FinalCTASection = () => (
           >
             Ho bisogno di aiuto
           </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            className="rounded-full border-0 bg-white text-black font-semibold text-base px-8 hover:bg-white/80 shadow-lg"
+          <button
+            className="h-11 rounded-full font-semibold text-base px-8 shadow-lg transition-colors"
+            style={{ backgroundColor: 'white', color: '#111' }}
             onClick={() => document.getElementById("worker-form")?.scrollIntoView({ behavior: "smooth" })}
           >
             Voglio lavorare
-          </Button>
+          </button>
         </div>
       </motion.div>
     </div>
