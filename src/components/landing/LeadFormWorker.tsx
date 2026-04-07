@@ -24,21 +24,29 @@ const LeadFormWorker = ({ open, onOpenChange }: LeadFormWorkerProps) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name || !form.email) {
+    if (!form.name.trim() || !form.email.trim()) {
       toast.error("Inserisci almeno nome e email.");
       return;
     }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(form.email.trim())) {
+      toast.error("Inserisci un'email valida.");
+      return;
+    }
     setLoading(true);
-    const { error } = await supabase.from("leads_workers").insert({
-      name: form.name,
-      email: form.email,
-      city: form.city || null,
-      skills: form.skills || null,
-      availability: form.availability || null,
-      pay: form.pay || null,
+    const { data, error } = await supabase.functions.invoke("submit-lead", {
+      body: {
+        type: "worker",
+        name: form.name.trim(),
+        email: form.email.trim(),
+        city: form.city.trim() || undefined,
+        skills: form.skills.trim() || undefined,
+        availability: form.availability.trim() || undefined,
+        pay: form.pay.trim() || undefined,
+      },
     });
     setLoading(false);
-    if (error) {
+    if (error || (data && data.error)) {
       toast.error("Errore nell'invio. Riprova.");
       return;
     }
@@ -61,12 +69,12 @@ const LeadFormWorker = ({ open, onOpenChange }: LeadFormWorkerProps) => {
               <DialogDescription>Unisciti alla community di worker e inizia a guadagnare.</DialogDescription>
             </DialogHeader>
             <form onSubmit={handleSubmit} className="space-y-4 mt-2">
-              <Input placeholder="Nome" value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} className="rounded-xl" />
-              <Input type="email" placeholder="Email" value={form.email} onChange={e => setForm(f => ({ ...f, email: e.target.value }))} className="rounded-xl" />
-              <Input placeholder="Città" value={form.city} onChange={e => setForm(f => ({ ...f, city: e.target.value }))} className="rounded-xl" />
-              <Textarea placeholder="Che lavori puoi fare?" value={form.skills} onChange={e => setForm(f => ({ ...f, skills: e.target.value }))} className="rounded-xl" />
-              <Input placeholder="Quando sei disponibile?" value={form.availability} onChange={e => setForm(f => ({ ...f, availability: e.target.value }))} className="rounded-xl" />
-              <Input placeholder="Quanto vorresti essere pagato? (€/ora)" value={form.pay} onChange={e => setForm(f => ({ ...f, pay: e.target.value }))} className="rounded-xl" />
+              <Input placeholder="Nome" value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} maxLength={200} className="rounded-xl" />
+              <Input type="email" placeholder="Email" value={form.email} onChange={e => setForm(f => ({ ...f, email: e.target.value }))} maxLength={255} className="rounded-xl" />
+              <Input placeholder="Città" value={form.city} onChange={e => setForm(f => ({ ...f, city: e.target.value }))} maxLength={200} className="rounded-xl" />
+              <Textarea placeholder="Che lavori puoi fare?" value={form.skills} onChange={e => setForm(f => ({ ...f, skills: e.target.value }))} maxLength={1000} className="rounded-xl" />
+              <Input placeholder="Quando sei disponibile?" value={form.availability} onChange={e => setForm(f => ({ ...f, availability: e.target.value }))} maxLength={200} className="rounded-xl" />
+              <Input placeholder="Quanto vorresti essere pagato? (€/ora)" value={form.pay} onChange={e => setForm(f => ({ ...f, pay: e.target.value }))} maxLength={200} className="rounded-xl" />
               <Button type="submit" size="lg" disabled={loading} className="w-full rounded-full text-base font-semibold bg-accent hover:bg-accent/90">
                 {loading ? "Invio in corso..." : "Candidati come worker"}
               </Button>
