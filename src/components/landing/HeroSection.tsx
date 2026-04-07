@@ -3,7 +3,12 @@ import { Button } from "@/components/ui/button";
 import PopJobLogo from "@/components/PopJobLogo";
 import heroImg from "@/assets/hero-illustration.jpg";
 
-const HeroSection = () => (
+interface HeroSectionProps {
+  onClientClick: () => void;
+  onWorkerClick: () => void;
+}
+
+const HeroSection = ({ onClientClick, onWorkerClick }: HeroSectionProps) => (
   <section className="relative overflow-hidden py-20 md:py-32" style={{ background: "var(--hero-gradient)" }}>
     <div className="container mx-auto">
       <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -28,7 +33,7 @@ const HeroSection = () => (
             <Button
               size="lg"
               className="rounded-full bg-foreground text-background font-semibold text-base px-8 hover:bg-foreground/90 shadow-lg"
-              onClick={() => document.getElementById("client-form")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={onClientClick}
             >
               Trova un worker
             </Button>
@@ -36,7 +41,7 @@ const HeroSection = () => (
               size="lg"
               variant="outline"
               className="rounded-full border-2 border-foreground text-foreground font-semibold text-base px-8 hover:bg-foreground hover:text-background"
-              onClick={() => document.getElementById("worker-form")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={onWorkerClick}
             >
               Lavora con noi
             </Button>

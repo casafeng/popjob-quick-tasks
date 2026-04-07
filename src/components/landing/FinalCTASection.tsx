@@ -1,7 +1,12 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
-const FinalCTASection = () => (
+interface FinalCTASectionProps {
+  onClientClick: () => void;
+  onWorkerClick: () => void;
+}
+
+const FinalCTASection = ({ onClientClick, onWorkerClick }: FinalCTASectionProps) => (
   <section className="py-20 bg-foreground">
     <div className="container mx-auto text-center">
       <motion.div
@@ -20,14 +25,14 @@ const FinalCTASection = () => (
           <Button
             size="lg"
             className="rounded-full bg-primary text-primary-foreground font-semibold text-base px-8 hover:bg-primary/90 shadow-lg"
-            onClick={() => document.getElementById("client-form")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={onClientClick}
           >
             Ho bisogno di aiuto
           </Button>
           <button
             className="h-11 rounded-full font-semibold text-base px-8 shadow-lg transition-colors"
             style={{ backgroundColor: 'white', color: '#111' }}
-            onClick={() => document.getElementById("worker-form")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={onWorkerClick}
           >
             Voglio lavorare
           </button>
