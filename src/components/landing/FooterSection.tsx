@@ -23,9 +23,13 @@ const FooterSection = () => (
           <h4 className="font-heading font-semibold mb-3">Contatti</h4>
           <p className="text-sm opacity-70 mb-3">popjob15@gmail.com</p>
           <div className="flex gap-3">
-            {["Instagram", "LinkedIn", "TikTok"].map(s => (
-              <a key={s} href="#" className="text-xs px-3 py-1.5 rounded-full border border-background/20 opacity-70 hover:opacity-100 transition-opacity">
-                {s}
+            {[
+              { name: "Instagram", url: "https://www.instagram.com/joinpopjob/" },
+              { name: "LinkedIn", url: "https://www.linkedin.com/company/joinpopjob" },
+              { name: "TikTok", url: "https://www.tiktok.com/@joinpopjob" },
+            ].map(s => (
+              <a key={s.name} href={s.url} target="_blank" rel="noopener noreferrer" className="text-xs px-3 py-1.5 rounded-full border border-background/20 opacity-70 hover:opacity-100 transition-opacity">
+                {s.name}
               </a>
             ))}
           </div>
