@@ -37,27 +37,6 @@ const SocialProofSection = () => (
         ))}
       </div>
 
-      <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-        {reviews.map((r, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.1, duration: 0.4 }}
-            className="rounded-2xl border border-border bg-background p-6"
-          >
-            <div className="flex gap-0.5 mb-3">
-              {Array.from({ length: r.rating }).map((_, j) => (
-                <Star key={j} className="w-4 h-4 fill-primary text-primary" />
-              ))}
-            </div>
-            <p className="text-sm mb-3 text-muted-foreground italic">"{r.text}"</p>
-            <p className="text-sm font-semibold">{r.name}</p>
-            <p className="text-xs text-muted-foreground">Utente in anteprima</p>
-          </motion.div>
-        ))}
-      </div>
     </div>
   </section>
 );
