@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { format } from "date-fns";
 import { it } from "date-fns/locale";
-import { CalendarIcon, Lightbulb } from "lucide-react";
+import { CalendarIcon, Lightbulb, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -29,7 +29,7 @@ import {
 } from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
 import { ITALIAN_PROVINCES } from "./italianProvinces";
-import { getPriceSuggestion } from "./priceSuggestions";
+import { useAIPriceSuggestion } from "@/hooks/useAIPriceSuggestion";
 
 interface LeadFormClientProps {
   open: boolean;
@@ -54,7 +54,7 @@ const LeadFormClient = ({ open, onOpenChange }: LeadFormClientProps) => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const priceSuggestion = useMemo(() => getPriceSuggestion(form.help), [form.help]);
+  const { suggestion: priceSuggestion, loading: priceLoading } = useAIPriceSuggestion(form.help);
 
   const whenValue = useMemo(() => {
     if (!selectedDate) return "";
@@ -195,11 +195,18 @@ const LeadFormClient = ({ open, onOpenChange }: LeadFormClientProps) => {
                   maxLength={200}
                   className="rounded-xl"
                 />
-                {priceSuggestion && (
+                {priceLoading && form.help.trim().length >= 10 && (
                   <div className="flex items-center gap-1.5 text-xs text-muted-foreground bg-muted/50 rounded-lg px-3 py-2">
-                    <Lightbulb className="h-3.5 w-3.5 text-primary shrink-0" />
+                    <Loader2 className="h-3.5 w-3.5 text-primary shrink-0 animate-spin" />
+                    <span>Analizzo la tua richiesta...</span>
+                  </div>
+                )}
+                {!priceLoading && priceSuggestion && (
+                  <div className="flex items-start gap-1.5 text-xs text-muted-foreground bg-muted/50 rounded-lg px-3 py-2">
+                    <Lightbulb className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5" />
                     <span>
                       <strong>{priceSuggestion.label}</strong>: solitamente {priceSuggestion.price}
+                      {priceSuggestion.note && <span className="block mt-0.5 text-muted-foreground/80">{priceSuggestion.note}</span>}
                     </span>
                   </div>
                 )}
