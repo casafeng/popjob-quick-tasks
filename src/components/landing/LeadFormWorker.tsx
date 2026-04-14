@@ -26,7 +26,7 @@ interface LeadFormWorkerProps {
 }
 
 const LeadFormWorker = ({ open, onOpenChange }: LeadFormWorkerProps) => {
-  const [form, setForm] = useState({ name: "", email: "", city: "", skills: "", availability: "", pay: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", city: "", skills: "", availability: "", pay: "" });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -47,6 +47,7 @@ const LeadFormWorker = ({ open, onOpenChange }: LeadFormWorkerProps) => {
         type: "worker",
         name: form.name.trim(),
         email: form.email.trim(),
+        phone: form.phone.trim() || undefined,
         city: form.city.trim() || undefined,
         skills: form.skills.trim() || undefined,
         availability: form.availability.trim() || undefined,

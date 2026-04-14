@@ -45,6 +45,7 @@ const LeadFormClient = ({ open, onOpenChange }: LeadFormClientProps) => {
   const [form, setForm] = useState({
     name: "",
     email: "",
+    phone: "",
     city: "",
     help: "",
     budget: "",
@@ -80,6 +81,7 @@ const LeadFormClient = ({ open, onOpenChange }: LeadFormClientProps) => {
         type: "client",
         name: form.name.trim(),
         email: form.email.trim(),
+        phone: form.phone.trim() || undefined,
         city: form.city || undefined,
         help: form.help.trim() || undefined,
         when: whenValue || undefined,
@@ -123,6 +125,14 @@ const LeadFormClient = ({ open, onOpenChange }: LeadFormClientProps) => {
                 value={form.email}
                 onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
                 maxLength={255}
+                className="rounded-xl"
+              />
+              <Input
+                type="tel"
+                placeholder="Telefono (opzionale)"
+                value={form.phone}
+                onChange={e => setForm(f => ({ ...f, phone: e.target.value }))}
+                maxLength={20}
                 className="rounded-xl"
               />
 
