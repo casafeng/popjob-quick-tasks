@@ -23,6 +23,7 @@ export type Database = {
           help: string | null
           id: string
           name: string
+          phone: string | null
           when: string | null
         }
         Insert: {
@@ -33,6 +34,7 @@ export type Database = {
           help?: string | null
           id?: string
           name: string
+          phone?: string | null
           when?: string | null
         }
         Update: {
@@ -43,6 +45,7 @@ export type Database = {
           help?: string | null
           id?: string
           name?: string
+          phone?: string | null
           when?: string | null
         }
         Relationships: []
@@ -56,6 +59,7 @@ export type Database = {
           id: string
           name: string
           pay: string | null
+          phone: string | null
           skills: string | null
         }
         Insert: {
@@ -66,6 +70,7 @@ export type Database = {
           id?: string
           name: string
           pay?: string | null
+          phone?: string | null
           skills?: string | null
         }
         Update: {
@@ -76,6 +81,7 @@ export type Database = {
           id?: string
           name?: string
           pay?: string | null
+          phone?: string | null
           skills?: string | null
         }
         Relationships: []
