@@ -79,7 +79,16 @@ const LeadFormWorker = ({ open, onOpenChange }: LeadFormWorkerProps) => {
             <form onSubmit={handleSubmit} className="space-y-4 mt-2">
               <Input placeholder="Nome" value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} maxLength={200} className="rounded-xl" />
               <Input type="email" placeholder="Email" value={form.email} onChange={e => setForm(f => ({ ...f, email: e.target.value }))} maxLength={255} className="rounded-xl" />
-              <Input placeholder="Città" value={form.city} onChange={e => setForm(f => ({ ...f, city: e.target.value }))} maxLength={200} className="rounded-xl" />
+              <Select value={form.city} onValueChange={val => setForm(f => ({ ...f, city: val }))}>
+                <SelectTrigger className="rounded-xl">
+                  <SelectValue placeholder="Provincia" />
+                </SelectTrigger>
+                <SelectContent className="max-h-60">
+                  {ITALIAN_PROVINCES.map(p => (
+                    <SelectItem key={p} value={p}>{p}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
               <Textarea placeholder="Che lavori puoi fare?" value={form.skills} onChange={e => setForm(f => ({ ...f, skills: e.target.value }))} maxLength={1000} className="rounded-xl" />
               <Input placeholder="Quando sei disponibile?" value={form.availability} onChange={e => setForm(f => ({ ...f, availability: e.target.value }))} maxLength={200} className="rounded-xl" />
               <Input placeholder="Quanto vorresti essere pagato? (€/ora)" value={form.pay} onChange={e => setForm(f => ({ ...f, pay: e.target.value }))} maxLength={200} className="rounded-xl" />
