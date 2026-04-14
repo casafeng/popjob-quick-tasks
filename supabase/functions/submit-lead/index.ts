@@ -11,6 +11,7 @@ interface ClientLead {
   type: "client";
   name: string;
   email: string;
+  phone?: string;
   city?: string;
   help?: string;
   when?: string;
@@ -21,6 +22,7 @@ interface WorkerLead {
   type: "worker";
   name: string;
   email: string;
+  phone?: string;
   city?: string;
   skills?: string;
   availability?: string;
@@ -74,10 +76,13 @@ Deno.serve(async (req) => {
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
     );
 
+    const phone = validateString(body.phone, 20);
+
     if (body.type === "client") {
       const { error } = await supabase.from("leads_clients").insert({
         name,
         email,
+        phone,
         city: validateString(body.city, 200),
         help: validateString(body.help, 1000),
         when: validateString(body.when, 200),
@@ -88,6 +93,7 @@ Deno.serve(async (req) => {
       const { error } = await supabase.from("leads_workers").insert({
         name,
         email,
+        phone,
         city: validateString(body.city, 200),
         skills: validateString(body.skills, 1000),
         availability: validateString(body.availability, 200),
