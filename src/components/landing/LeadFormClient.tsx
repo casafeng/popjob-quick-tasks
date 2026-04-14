@@ -54,7 +54,7 @@ const LeadFormClient = ({ open, onOpenChange }: LeadFormClientProps) => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const priceSuggestion = useMemo(() => getPriceSuggestion(form.help), [form.help]);
+  const { suggestion: priceSuggestion, loading: priceLoading } = useAIPriceSuggestion(form.help);
 
   const whenValue = useMemo(() => {
     if (!selectedDate) return "";
