@@ -80,6 +80,7 @@ const LeadFormWorker = ({ open, onOpenChange }: LeadFormWorkerProps) => {
             <form onSubmit={handleSubmit} className="space-y-4 mt-2">
               <Input placeholder="Nome" value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} maxLength={200} className="rounded-xl" />
               <Input type="email" placeholder="Email" value={form.email} onChange={e => setForm(f => ({ ...f, email: e.target.value }))} maxLength={255} className="rounded-xl" />
+              <Input type="tel" placeholder="Telefono (opzionale)" value={form.phone} onChange={e => setForm(f => ({ ...f, phone: e.target.value }))} maxLength={20} className="rounded-xl" />
               <Select value={form.city} onValueChange={val => setForm(f => ({ ...f, city: val }))}>
                 <SelectTrigger className="rounded-xl">
                   <SelectValue placeholder="Provincia" />
