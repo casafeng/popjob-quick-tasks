@@ -195,11 +195,18 @@ const LeadFormClient = ({ open, onOpenChange }: LeadFormClientProps) => {
                   maxLength={200}
                   className="rounded-xl"
                 />
-                {priceSuggestion && (
+                {priceLoading && form.help.trim().length >= 10 && (
                   <div className="flex items-center gap-1.5 text-xs text-muted-foreground bg-muted/50 rounded-lg px-3 py-2">
-                    <Lightbulb className="h-3.5 w-3.5 text-primary shrink-0" />
+                    <Loader2 className="h-3.5 w-3.5 text-primary shrink-0 animate-spin" />
+                    <span>Analizzo la tua richiesta...</span>
+                  </div>
+                )}
+                {!priceLoading && priceSuggestion && (
+                  <div className="flex items-start gap-1.5 text-xs text-muted-foreground bg-muted/50 rounded-lg px-3 py-2">
+                    <Lightbulb className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5" />
                     <span>
                       <strong>{priceSuggestion.label}</strong>: solitamente {priceSuggestion.price}
+                      {priceSuggestion.note && <span className="block mt-0.5 text-muted-foreground/80">{priceSuggestion.note}</span>}
                     </span>
                   </div>
                 )}
