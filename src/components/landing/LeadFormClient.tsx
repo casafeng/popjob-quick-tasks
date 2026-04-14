@@ -29,7 +29,7 @@ import {
 } from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
 import { ITALIAN_PROVINCES } from "./italianProvinces";
-import { getPriceSuggestion } from "./priceSuggestions";
+import { useAIPriceSuggestion } from "@/hooks/useAIPriceSuggestion";
 
 interface LeadFormClientProps {
   open: boolean;
