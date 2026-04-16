@@ -1,6 +1,5 @@
-import { motion } from "framer-motion";
 import PopJobLogo from "@/components/PopJobLogo";
-import heroCard from "@/assets/hero-card.jpg";
+import heroArtwork from "@/assets/hero-artwork.jpg";
 
 interface HeroSectionProps {
   onClientClick: () => void;
@@ -14,18 +13,17 @@ const HeroSection = ({ onClientClick, onWorkerClick }: HeroSectionProps) => (
         <PopJobLogo size="md" />
       </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="rounded-3xl overflow-hidden"
-      >
-        <img
-          src={heroCard}
-          alt="Post it. Solve it."
-          className="w-full block"
-        />
-      </motion.div>
+      <img
+        src={heroArtwork}
+        alt="Post it. Solve it."
+        style={{
+          width: "100%",
+          height: "auto",
+          objectFit: "contain",
+          objectPosition: "center",
+          display: "block",
+        }}
+      />
     </div>
   </section>
 );
