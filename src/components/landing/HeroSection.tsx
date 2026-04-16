@@ -26,14 +26,14 @@ const HeroSection = ({ onClientClick, onWorkerClick }: HeroSectionProps) => (
         <div className="absolute bottom-[12%] left-1/2 -translate-x-1/2 flex gap-6">
           <Button
             size="lg"
-            className="rounded-full font-semibold text-lg px-12 h-14 bg-[#1800AD] text-white hover:bg-[#130089] border-none transition-colors"
+            className="rounded-full font-semibold text-lg px-12 h-14 bg-[#5170ff] text-white hover:bg-[#4060ee] border-none transition-colors"
             onClick={onClientClick}
           >
             Trova un worker
           </Button>
           <Button
             size="lg"
-            className="rounded-full font-semibold text-lg px-12 h-14 bg-white text-[#1800AD] hover:bg-gray-50 border-2 border-[#1800AD] transition-colors"
+            className="rounded-full font-semibold text-lg px-12 h-14 bg-white text-[#5170ff] hover:bg-gray-50 border-2 border-[#5170ff] transition-colors"
             onClick={onWorkerClick}
           >
             Lavora con noi
