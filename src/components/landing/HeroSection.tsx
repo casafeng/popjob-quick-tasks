@@ -59,11 +59,13 @@ const HeroSection = ({ onClientClick, onWorkerClick }: HeroSectionProps) => (
           transition={{ duration: 0.7, delay: 0.2 }}
           className="hidden md:flex justify-center"
         >
-          <img
-            src={heroIllustration}
-            alt="Persone che si aiutano con lavori locali"
-            className="w-full max-w-[600px] rounded-3xl"
-          />
+          <div className="bg-white rounded-3xl shadow-xl p-6 w-full max-w-[580px]">
+            <img
+              src={heroIllustration}
+              alt="Persone che si aiutano con lavori locali"
+              className="w-full h-auto rounded-2xl"
+            />
+          </div>
         </motion.div>
       </div>
     </div>
