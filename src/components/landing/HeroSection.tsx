@@ -14,14 +14,12 @@ const HeroSection = ({ onClientClick, onWorkerClick }: HeroSectionProps) => (
         <PopJobLogo size="md" />
       </div>
 
-      <div
-        className="relative rounded-3xl overflow-hidden mx-auto"
-        style={{ aspectRatio: "2.4 / 1" }}
-      >
+      <div className="relative rounded-3xl overflow-hidden mx-auto">
         <img
           src={heroArtwork}
           alt="Post it. Solve it."
-          className="absolute inset-0 w-full h-full object-cover object-center block"
+          className="w-full h-auto block"
+          style={{ objectFit: "contain", objectPosition: "center" }}
         />
 
         {/* CTA buttons inside the banner */}
