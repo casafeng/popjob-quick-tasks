@@ -8,8 +8,8 @@ interface HeroSectionProps {
 }
 
 const HeroSection = ({ onClientClick, onWorkerClick }: HeroSectionProps) => (
-  <section className="bg-background pt-6 pb-8 md:pt-8 md:pb-12 px-4">
-    <div className="container mx-auto">
+  <section className="bg-background pt-6 pb-8 md:pt-8 md:pb-12 px-3 md:px-4">
+    <div className="mx-auto max-w-[1600px]">
       <div className="mb-6">
         <PopJobLogo size="md" />
       </div>
