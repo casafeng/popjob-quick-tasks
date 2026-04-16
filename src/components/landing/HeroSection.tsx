@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import PopJobLogo from "@/components/PopJobLogo";
-import heroIllustration from "@/assets/hero-illustration.svg";
+import heroImg from "@/assets/hero-illustration.jpg";
 
 interface HeroSectionProps {
   onClientClick: () => void;
@@ -9,18 +9,15 @@ interface HeroSectionProps {
 }
 
 const HeroSection = ({ onClientClick, onWorkerClick }: HeroSectionProps) => (
-  <section
-    className="relative overflow-hidden min-h-screen flex items-center"
-    style={{ background: "var(--hero-gradient)" }}
-  >
-    <div className="container mx-auto px-6 md:px-12">
+  <section className="relative overflow-hidden py-20 md:py-32" style={{ background: "var(--hero-gradient)" }}>
+    <div className="container mx-auto">
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <div className="mb-8">
+          <div className="mb-6">
             <PopJobLogo size="lg" color="text-foreground" />
           </div>
           <h1 className="text-4xl md:text-6xl font-heading font-bold text-foreground leading-tight mb-4">
@@ -29,7 +26,7 @@ const HeroSection = ({ onClientClick, onWorkerClick }: HeroSectionProps) => (
           <p className="text-lg md:text-xl text-foreground/80 mb-2 max-w-lg font-medium">
             Work when you want. Hire when you need.
           </p>
-          <p className="text-base text-foreground/70 mb-10 max-w-lg">
+          <p className="text-base text-foreground/70 mb-8 max-w-lg">
             Trova un worker per i tuoi piccoli lavori o guadagna nel tuo tempo libero. Oggi, vicino a te.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mb-6">
@@ -57,15 +54,9 @@ const HeroSection = ({ onClientClick, onWorkerClick }: HeroSectionProps) => (
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="hidden md:flex justify-center"
+          className="hidden md:block"
         >
-          <div className="bg-white rounded-3xl shadow-xl p-6 w-full max-w-[580px]">
-            <img
-              src={heroIllustration}
-              alt="Persone che si aiutano con lavori locali"
-              className="w-full h-auto rounded-2xl"
-            />
-          </div>
+          <img src={heroImg} alt="Persone che si aiutano con lavori locali" width={1024} height={768} className="rounded-3xl shadow-2xl" />
         </motion.div>
       </div>
     </div>
