@@ -14,7 +14,7 @@ const HeroSection = ({ onClientClick, onWorkerClick }: HeroSectionProps) => (
         <PopJobLogo size="md" />
       </div>
 
-      <div className="relative">
+      <div className="relative rounded-3xl overflow-hidden">
         <img
           src={heroArtwork}
           alt="Post it. Solve it."
