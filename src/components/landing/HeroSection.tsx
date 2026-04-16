@@ -8,27 +8,24 @@ interface HeroSectionProps {
 }
 
 const HeroSection = ({ onClientClick, onWorkerClick }: HeroSectionProps) => (
-  <section className="bg-background pt-6 pb-8 md:pt-8 md:pb-12 px-3 md:px-4">
-    <div className="mx-auto max-w-[1600px]">
-      <div className="mb-6">
+  <section className="bg-background pt-6 pb-10 md:pt-8 md:pb-14">
+    <div className="mx-auto max-w-[1880px]" style={{ padding: "0 5vw" }}>
+      <div className="mb-8 md:mb-10">
         <PopJobLogo size="md" />
       </div>
 
-      <div className="relative rounded-3xl overflow-hidden">
+      <div
+        className="relative rounded-3xl overflow-hidden mx-auto"
+        style={{ aspectRatio: "2.4 / 1" }}
+      >
         <img
           src={heroArtwork}
           alt="Post it. Solve it."
-          style={{
-            width: "100%",
-            height: "auto",
-            objectFit: "contain",
-            objectPosition: "center",
-            display: "block",
-          }}
+          className="absolute inset-0 w-full h-full object-cover object-center block"
         />
 
-        {/* CTA buttons positioned inside the banner, lower-center area */}
-        <div className="absolute bottom-[8%] left-1/2 -translate-x-1/2 flex gap-3">
+        {/* CTA buttons inside the banner */}
+        <div className="absolute bottom-[12%] left-1/2 -translate-x-1/2 flex gap-3">
           <Button
             size="lg"
             className="rounded-full font-semibold text-base px-8 h-12 bg-[#1800AD] text-white hover:bg-[#130089] border-none transition-colors"
