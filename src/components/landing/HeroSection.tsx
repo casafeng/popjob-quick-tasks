@@ -22,18 +22,18 @@ const HeroSection = ({ onClientClick, onWorkerClick }: HeroSectionProps) => (
           style={{ objectFit: "contain", objectPosition: "center" }}
         />
 
-        {/* CTA buttons - stacked on mobile, inline on desktop */}
-        <div className="absolute bottom-[8%] md:bottom-[12%] left-1/2 -translate-x-1/2 flex flex-col md:flex-row gap-2 md:gap-6 w-[90%] md:w-auto items-center">
+        {/* CTA buttons - always side by side */}
+        <div className="absolute bottom-[6%] md:bottom-[12%] left-1/2 -translate-x-1/2 flex flex-row gap-2 md:gap-6 w-[95%] md:w-auto items-center justify-center">
           <Button
             size="lg"
-            className="w-full md:w-auto rounded-full font-semibold text-sm md:text-lg px-6 md:px-12 h-10 md:h-14 bg-[#5170ff] text-white hover:bg-[#4060ee] border-none transition-colors"
+            className="flex-1 md:flex-none md:w-auto rounded-full font-semibold text-xs md:text-lg px-3 md:px-12 h-9 md:h-14 bg-[#5170ff] text-white hover:bg-[#4060ee] border-none transition-colors whitespace-nowrap"
             onClick={onClientClick}
           >
             Trova un worker
           </Button>
           <Button
             size="lg"
-            className="w-full md:w-auto rounded-full font-semibold text-sm md:text-lg px-6 md:px-12 h-10 md:h-14 bg-white text-[#5170ff] hover:bg-gray-50 border-2 border-[#5170ff] transition-colors"
+            className="flex-1 md:flex-none md:w-auto rounded-full font-semibold text-xs md:text-lg px-3 md:px-12 h-9 md:h-14 bg-white text-[#5170ff] hover:bg-gray-50 border-2 border-[#5170ff] transition-colors whitespace-nowrap"
             onClick={onWorkerClick}
           >
             Lavora con noi
